@@ -1,11 +1,11 @@
 /**
 En una lista vacía hay cero elementos. - OK
-Cuando se agrega un elemento a una lista vacía hay un elemento.
+Cuando se agrega un elemento a una lista vacía hay un elemento. - OK
 Cuando se agregan dos elementos a una lista vacía hay dos elementos.
 En una lista vacía no se encuentra ninguna clave.
-Cuando se agrega un elemento a una lista vacía se puede recuperar el valor a partir de la clave.
-Cuando se agrega una clave que ya está en la lista se actualiza el valor correspondiente.
-Cuando se agrega una clave que ya está en la lista no cambia la cantidad de elementos almacenados.
+Cuando se agrega un elemento a una lista vacía se puede recuperar el valor a partir de la clave.  - OK
+Cuando se agrega una clave que ya está en la lista se actualiza el valor correspondiente.  - OK
+Cuando se agrega una clave que ya está en la lista no cambia la cantidad de elementos almacenados.  - OK
 Cuando se agregan un elemento a una lista vacía la lista de claves esta ordenada.
 Cuando se agrega un elemento al principio la lista de claves esta ordenada.
 Cuando se agrega un elemento al final la lista de claves esta ordenada.
@@ -57,6 +57,22 @@ describe("Cuando se agrega un nuevo elemento con una clave que ya está en la li
         assert.equal(lista.find("clave"), 123);
     });
     
+});
+
+describe("Cuando se agregan varios elementos a una lista", function(){
+    var lista = new Lista();
+    lista.add("cadena", "valor");
+    lista.add("numero", 123);
+
+    it("Hay dos elementos almacenados", function(){
+        assert.equal(lista.count(), 2);
+    });
+
+    it("se recupera el valor de los elementos almacenados", function(){
+        assert.equal(lista.find("cadena"), "valor");
+        assert.equal(lista.find("numero"), 123);
+    });
+
 });
 
 
