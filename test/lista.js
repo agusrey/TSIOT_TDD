@@ -36,8 +36,11 @@ describe("Cuando se agrega un elemento a una lista vacía hay un elemento", func
     lista.add("clave", "valor");
 
     it("Hay un elemento almacenado", function(){
-        
         assert.equal(lista.count(), 1);
+    });
+
+    it("Se recupera el valor de la clave del elemento agregado", function(){
+        assert.equal(lista.find("clave"), "valor");
     });
 });
 
