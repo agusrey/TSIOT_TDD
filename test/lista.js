@@ -1,6 +1,7 @@
 /**
 En una lista vacía hay cero elementos. - OK
 Cuando se agrega un elemento a una lista vacía hay un elemento.
+Cuando se agregan dos elementos a una lista vacía hay dos elementos.
 En una lista vacía no se encuentra ninguna clave.
 Cuando se agrega un elemento a una lista vacía se puede recuperar el valor a partir de la clave.
 Cuando se agrega una clave que ya está en la lista se actualiza el valor correspondiente.
@@ -29,3 +30,15 @@ describe("lista de pares clave:valor", function(){
 
     });
 });
+
+describe("Cuando se agrega un elemento a una lista vacía hay un elemento", function(){
+    var lista = new Lista();
+    lista.add("clave", "valor");
+
+    it("Hay un elemento almacenado", function(){
+        
+        assert.equal(lista.count(), 1);
+    });
+});
+
+
