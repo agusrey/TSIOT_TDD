@@ -59,4 +59,12 @@ module.exports = class Lista{
             this.#elements.splice(index, 1);
         }
     }
-}
+
+    getKeys(){
+        var keys = [];
+        for (let index = 0; index < this.#elements.length; index++) {
+            keys.push(this.#elements[index].key);
+        }
+        return keys.sort();
+    }
+};

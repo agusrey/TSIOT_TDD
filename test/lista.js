@@ -10,7 +10,7 @@ Cuando se agregan un elemento a una lista vacía la lista de claves esta ordenad
 Cuando se agrega un elemento al principio la lista de claves esta ordenada.
 Cuando se agrega un elemento al final la lista de claves esta ordenada.
 Si se agrega un elemento a una lista vacía se puede borrar la pareja correspondiente. - OK
-No se puede agregar una clave si no es cadena de texto.
+No se puede agregar una clave si no es cadena de texto. - OK
 */
 
 const { assert } = require('chai');
@@ -80,7 +80,6 @@ describe("Cuando se agregan varios elementos a una lista", function(){
         assert.equal(lista.find("cadena"), "valor");
         assert.equal(lista.find("numero"), 123);
     });
-
 });
 
 describe("Cuando se borra una pareja de la lista", function(){
@@ -91,6 +90,22 @@ describe("Cuando se borra una pareja de la lista", function(){
         lista.remove("cadena");
         assert.equal(lista.find("cadena"), null);
     });
+});
 
+describe("La lista de claves que se obtiene debe estar ordenada", function(){
+    it("Cuando se agrega un elemento a una lista vacía, debe estar ordenada ", function(){
+        var lista = new Lista();
+        lista.add("cadena", "valor");
+        assert.deepEqual(lista.getKeys(), [ 'cadena' ]);
+    });
+
+    it("Cuando se agregan elementos al final de la lista vacía , debe estar ordenada ", function(){
+        var lista = new Lista();
+        lista.add("3cadena", "valor3");
+        lista.add("4cadena", "valor4");
+        lista.add("2cadena", "valor2");
+        lista.add("1cadena", "valor1");
+        assert.deepEqual(lista.getKeys(), [ '1cadena', '2cadena', '3cadena', '4cadena' ]);
+    });
 
 });
