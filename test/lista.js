@@ -9,8 +9,7 @@ Cuando se agrega una clave que ya está en la lista no cambia la cantidad de ele
 Cuando se agregan un elemento a una lista vacía la lista de claves esta ordenada.
 Cuando se agrega un elemento al principio la lista de claves esta ordenada.
 Cuando se agrega un elemento al final la lista de claves esta ordenada.
-En una lista vacía no se puede borrar ninguna pareja.
-Si se agrega un elemento a una lista vacía se puede borrar la pareja correspondiente.
+Si se agrega un elemento a una lista vacía se puede borrar la pareja correspondiente. - OK
 No se puede agregar una clave si no es cadena de texto.
 */
 
@@ -44,6 +43,12 @@ describe("Cuando se agrega un elemento a una lista vacía hay un elemento", func
 
     it("Se recupera el valor de la clave del elemento agregado", function(){
         assert.equal(lista.find("clave"), "valor");
+    });
+
+    it("Si la clave no es texto no se puede agregar el elemento a la lista", function(){
+        var lista = new Lista();
+        lista.add(1, "valor");
+        assert.equal(lista.count(), 0);
     });
 });
 
@@ -86,6 +91,6 @@ describe("Cuando se borra una pareja de la lista", function(){
         lista.remove("cadena");
         assert.equal(lista.find("cadena"), null);
     });
-    
+
 
 });

@@ -42,6 +42,9 @@ module.exports = class Lista{
     };
 
     add(key, value){
+        if(typeof key != "string"){
+            return;
+        }
         var index = this.#get_index(key);
         if (!isNaN(index)){
             this.#elements[index].value = value;
