@@ -1,14 +1,17 @@
 /**
 En una lista vacía hay cero elementos. - OK
 Cuando se agrega un elemento a una lista vacía hay un elemento. - OK
-Cuando se agregan dos elementos a una lista vacía hay dos elementos.
-En una lista vacía no se encuentra ninguna clave.
+Cuando se agregan dos elementos a una lista vacía hay dos elementos. - OK
+En una lista vacía no se encuentra ninguna clave. - OK
 Cuando se agrega un elemento a una lista vacía se puede recuperar el valor a partir de la clave.  - OK
 Cuando se agrega una clave que ya está en la lista se actualiza el valor correspondiente.  - OK
 Cuando se agrega una clave que ya está en la lista no cambia la cantidad de elementos almacenados.  - OK
 Cuando se agregan un elemento a una lista vacía la lista de claves esta ordenada.
 Cuando se agrega un elemento al principio la lista de claves esta ordenada.
 Cuando se agrega un elemento al final la lista de claves esta ordenada.
+En una lista vacía no se puede borrar ninguna pareja.
+Si se agrega un elemento a una lista vacía se puede borrar la pareja correspondiente.
+No se puede agregar una clave si no es cadena de texto.
 */
 
 const { assert } = require('chai');
@@ -75,4 +78,14 @@ describe("Cuando se agregan varios elementos a una lista", function(){
 
 });
 
+describe("Cuando se borra una pareja de la lista", function(){
+    it("el elemento desaparece de la lista", function(){
+        var lista = new Lista();
+        lista.add("cadena", "valor");
+        lista.add("numero", 123);
+        lista.remove("cadena");
+        assert.equal(lista.find("cadena"), null);
+    });
+    
 
+});
